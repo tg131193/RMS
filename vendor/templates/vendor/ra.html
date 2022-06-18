@@ -1,0 +1,54 @@
+{% extends 'vendor/base1.html' %}
+{% load static %}
+{% block title %} Registration Form{% endblock title %}
+{% block content %}
+
+  <div class="col-sm-6 offset-sm-3">
+   <h3>Vender Registration</h3>
+   <hr>
+   
+
+   <form action="{% url 'vendorregistrater' %}" method="post" novalidate class="shadow p-5"  >
+      {% csrf_token %}
+
+      <div class="mb-3">
+         <label for="" class="form-label">select</label>
+         <select class="form-control" name="role" id="">
+           <option>select....</option>
+           <option>vendor</option>
+           <option>straf</option>
+         </select>
+       </div>
+    <div class="mb-3">
+     <label for="" class="form-label" >Full Name</label>
+     <input type="text" class="form-control" id="" name="name">
+     <div id="emailHelp" class="form-text">full name enter .</div>
+    </div>
+    <div class="mb-3">
+     <label for="" class="form-label" >phone nember</label>
+     <input type="text" class="form-control" id="" name="phone">
+     <div id="emailHelp" class="form-text">phone number enter exam.(9562358410)</div>
+    </div>
+    <div class="mb-3">
+     <label for="" class="form-label">Password</label>
+     <input type="password" class="form-control" id="" name="password">
+    </div>
+    <div class="mb-3">
+     <label for="" class="form-label">Confirm Password</label>
+     <input type="password" class="form-control" id="" name="cpassword">
+   </div>
+   
+   <div class='text-center'>
+      
+     <button onclick="validateform()" type="submit" class="btn btn-primary">Submit</button>
+     
+   </div>
+   
+   <div class='text-start fw-bold'><small>Existing user?<a href="" class='text-danger'>login now</a></div>
+     
+    
+
+   </form>
+  </div>
+
+{% endblock content %}

@@ -1,0 +1,64 @@
+{% extends 'vendor/base1.html' %}
+{% load static %}
+{% block title %} profile{% endblock title %}
+{% block content %}
+
+  <div class="col-sm-6 offset-sm-3">
+   <h3>Vender Registration</h3>
+   {% if message %}<h3>{{message}}{% endif %}
+   <hr>
+
+   <form action="{% url 'vendorprofilecreate' pk=request.session.id %}" method="post" novalidate class="shadow p-5"  >
+      {% csrf_token %}
+
+      <div class="mb-3">
+        <label for="" class="form-label">name</label>
+        <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="" value={{request.session.name}} redonly>
+        <small id="helpId" class="form-text text-muted">Help text</small>
+      </div>
+
+      <div class="mb-3">
+        <label for="" class="form-label">city</label>
+        <input type="text" class="form-control" name="city" id="" aria-describedby="helpId" >
+        <small id="helpId" class="form-text text-muted">Help text</small>
+      </div>
+      
+      <div class="mb-3">
+        <label for="" class="form-label">address</label>
+        <textarea class="form-control" name="address" id="" rows="3"></textarea>
+      </div>
+        
+      <div class="mb-3">
+        <label for="" class="form-label">state</label>
+        <input type="text" class="form-control" name="state" id="" aria-describedby="helpId" placeholder="" >
+        <small id="helpId" class="form-text text-muted">Help text</small>
+      </div>
+      <div class="mb-3">
+        <label for="" class="form-label">pincode</label>
+        <input type="number" class="form-control" name="pincode" id="" aria-describedby="helpId" placeholder="">
+        <small id="helpId" class="form-text text-muted">Help text</small>
+      </div>
+
+      input<div class="mb-3">
+        <label for="" class="form-label">img</label>
+        <input type="file" class="form-control" name="img" id="" placeholder="" aria-describedby="fileHelpId">
+        <small id="fileHelpId" class="form-text text-muted">Help text</small>
+      </div>
+
+
+     
+   
+   <div class='text-center'>
+      
+     <button type="submit" class="btn btn-primary">Submit</button>
+     
+   </div>
+   
+   <div class='text-start fw-bold'><small>Existing user?<a href="{% url 'vendorprofileupdate' pk=request.session.id %}" class='text-danger'>update</a></div>
+     
+    
+
+   </form>
+  </div>
+
+{% endblock content %}

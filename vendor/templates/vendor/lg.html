@@ -1,0 +1,44 @@
+{% extends 'vendor/base1.html' %}
+{% load static %}
+{% block title %} vendor{% endblock title %}
+{% block content %}
+
+<div class="col-sm-6 offset-sm-3">
+
+   <h3>Vender Registration</h3>
+
+   <hr>
+   <form action="vendorlogin" method="post" novalidate class="shadow p-5"  >
+      {% csrf_token %}
+<div class="mb-3">
+  <label for="" class="form-label">select</label>
+  <select class="form-control" name="role" id="">
+    
+    <option>staff</option>
+    
+  </select>
+</div>
+
+<div class="mb-3">
+  <label for="" class="form-label">phone number</label>
+  <input type="text" class="form-control" name="phone" id="" aria-describedby="helpId" placeholder="">
+  <small id="helpId" class="form-text text-muted">Help text</small>
+</div>
+
+<div class="mb-3">
+  <label for="" class="form-label">pasword</label>
+  <input type="text" name="password" id="" class="form-control" placeholder="" aria-describedby="helpId">
+  <small id="helpId" class="text-muted">Help text</small>
+</div>
+
+<div class='text-center'>
+   <button type="submit" class="btn btn-primary">Submit</button>
+   
+</div>
+
+<div hidden class='text-start fw-bold'><small>Existing user?<a href="" class='text-danger'>register now</a></div>
+  
+</div>
+
+</form>
+{% endblock content %}

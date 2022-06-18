@@ -1,0 +1,37 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Mobile{% endblock title %}
+{% block main-content %}
+<div class="container my-5">
+ <div class="row">
+  <div class="col-sm-3">
+   <div class="list-group">
+     <a href="{% url 'frozen' %}" class="list-group-item list-group-item-action" aria-current="true">All Reataurent Food</a>
+    
+     <a href="{% url 'frozen_' 'below'  %}" class="list-group-item list-group-item-action">Below 100</a>
+     <a href="{% url 'frozen_' 'above'  %}" class="list-group-item list-group-item-action">Above 100</a>
+   </div>
+  </div>
+  <div class="col-sm-8">
+   <div class="row">
+    <div class="container-fluid row  mt-sm-2 mb-sm-2 mb-md-2">
+      {% for b in dryfoods %}
+      
+      
+      <div class="col-md-3 mt-sm-5">
+       <a href="{% url 'product-detail' b.id %}"> <img src="{{b.product_image.url}}" alt="New York" class="zoom d-block card-img-top rounded shadow zoom" style="width:100%;"></a>
+        <h4 class="card-title text-center">{{b.title}}</h4>
+        <div class="card-body d-inline mx-auto">
+          <ul class="md-d-inline h4   text-danger mx-md-2">Rs. {{b.discounted_price}}</ul>
+          <ul class="md-d-inline fw-light text-decoration-line-through ">Rs.{{b.selling_price}}</ul>
+          <ul class=" md-d-inline fw-light  ">Brand :{{b.brand}}</ul>
+          <a href="{% url 'product-detail' b.id %}" class="btn  btn-primary ">Shope New</a>
+        </div>
+      </div>
+      
+      {% endfor %} 
+   </div>
+  </div>
+ </div>
+</div>
+{% endblock main-content %}

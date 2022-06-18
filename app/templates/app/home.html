@@ -1,0 +1,76 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+
+{% block banner_slider %}
+<!--Banner Slider-->
+ <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'banner/3.jpg' %}" class="d-block w-100" alt="..."> 
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'banner/2.jpg' %}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'banner/3.jpg' %}" class="d-block w-100" alt="...">
+    </div>
+   
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </a>
+</div>
+<!-- End Banner Slider -->
+{% endblock banner_slider %}
+
+
+{% block main-content %}
+
+
+<!-- 1st Product Slider -->
+<div class="mx-3">
+   
+  <h2><a class="dropdown-item" href="{% url 'nonveg' %}">Non-veg Food</a></h2>
+  <!-- Slider 3 -->
+  <div class="owl-carousel" id="slider1" >
+      {% for c in nonveg %}
+        <a href="{% url 'product-detail' c.id %}" class="btn"><div class="item"><img src="{{c.product_image.url}}" alt="" height="300"><span class="fw-bold">{{c.title}}</span><br><span class="fs-5">Rs. {{c.discounted_price}}</span></div></a>
+      {% endfor %}
+   
+  </div>
+ </div>
+
+
+<!-- 2nd Product Slider -->
+<div class="mx-3">
+ <h2><a class="dropdown-item" href="{% url 'frozen' %}">Frozen Food</a></h2>
+ <!-- Slider 2 -->
+ <div class="owl-carousel" id="slider3">
+  {% for tp in frozen %}
+    <a href="{% url 'product-detail' tp.id %}" class="btn"><div class="item"><img src="{{tp.product_image.url}}" alt="" height="300"><span class="fw-bold">{{tp.title}}</span><br><span class="fs-5">Rs. {{tp.discounted_price}}</span></div></a>
+  {% endfor %}
+ </div>
+</div>
+<!-- End 2nd Product Slider -->
+
+<!-- 3rd Product Slider -->
+<div class="mx-3">
+ <h2><a class="dropdown-item" href="{% url 'veg' %}">Veg Food</a></h2>
+ <!-- Slider 3 -->
+ <div class="owl-carousel" id="slider3">
+  {% for m in veg %}
+    <a href="{% url 'product-detail' m.id %}" class="btn"><div class="item"><img src="{{m.product_image.url}}" alt="" height="300"><span class="fw-bold">{{m.title|truncatewords:3}}</span><br><span class="fs-5 h6">Rs. {{m.discounted_price}}</span></div></a>
+  {% endfor %}
+ </div>
+</div>
+
+
+
+{% endblock main-content %}
+

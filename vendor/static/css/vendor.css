@@ -1,0 +1,27 @@
+#aside{
+    list-style: none;
+
+}
+body{
+   margin: 0;
+   padding: 0;
+
+}
+.foo{
+    text-align: center;
+    justify-content: center;
+    height: 100px;
+    content: initial;
+    list-style: none;
+    text-transform: capitalize;
+    
+    
+}
+.foo:active{
+    color: rgb(255, 0, 225);
+}
+
+
+input[type="email"]::placeholder {
+    color: blue;
+  }

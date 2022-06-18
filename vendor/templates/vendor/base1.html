@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/vendor.css' %}">
+    
+
+    <title>{% block title %} {% endblock title %}</title>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-md navbar-light bg-primary flex">
+          <div class="container">
+            <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'app/images/logo.png' %}" alt="" srcset="" class="img-fluid" height="2px"></a>
+            <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavId">
+                <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
+                
+                   
+                
+                {% if request.session.id %}
+                
+                <li class="nav-item ms-5">
+                 
+                   <div class="dropdown">
+                       <button class="btn btn-secondary dropdown-toggle" type="button" id="triggerId" data-bs-toggle="dropdown" aria-haspopup="true"
+                       aria-expanded="false">
+                       wellcome {{request.session.name}}
+                       
+                    </button>
+                       <div class="dropdown-menu" aria-labelledby="triggerId">
+                           <a class="dropdown-item" href="#">profile</a>
+                           <a class="dropdown-item" href="#">shop</a>
+                           <a class="dropdown-item" href="#">product</a>
+                           <a class="dropdown-item" href="#">product list</a>
+                           <a class="dropdown-item" href="#">order list</a>
+                           
+                        </div>
+                    </div>
+                </li>
+                {% else %}
+                <li class="nav-item mx-auto">
+                    <a hidden class="nav-link" href="{% url 'vendor:vendorlog' %}">Login</a>
+                   
+                </li>
+               
+                <li class="nav-item">
+                    <a class="nav-link" hidden href="">registrations</a>
+                </li>
+                {% endif %}
+            </ul>
+            
+        </div>
+    </div>
+</nav>
+
+<h4>wellcome {{request.session.name}}</h4></div>
+
+
+
+
+  
+
+        <!---conteant-->
+    {% block sidecontaint %}{% endblock sidecontaint %}
+       
+
+   
+    {% block content %}{% endblock content %}
+
+    <!-- Start Footer -->
+    <footer class="container-fluid bg-dark text-center p-2 ">
+        <small class="text-white">Copyright &copy; 2021 || Designed By Dryfy || </small>
+        <a href="{% url 'vendor:vendorlog' %}" class="nav-link text-white">vendor</a>
+
+
+
+
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+
+    <!-- https://cdnjs.com/libraries/popper.js/2.5.4 -->
+    <!-- <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.5.4/umd/popper.min.js"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta1/js/bootstrap.min.js"
+    ></script> -->
+
+    <!-- More: https://getbootstrap.com/docs/5.0/getting-started/introduction/ -->
+</body>
+
+
+</div>
+
+
+
+
+
+
+</html>
